@@ -1,0 +1,4 @@
+dbo.tbl_JobDefinition
+dbo.tbl_JobHistory
+JobService.tbl_JobDefinitionTemplate
+JobService.tbl_JobScheduleTemplate
