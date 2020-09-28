@@ -43,15 +43,7 @@ ForEach($sqlQueryFile in $sqlQueryFiles)
 #===========================================================================================
 # Config DBs query
 $sqlQueryFiles = Get-ChildItem '.\Config' -Filter *.sql
-$executionTimestamp = Get-Date -Format "yyyyMMdd_hhmmss"
-$outputDirectory = Join-Path $OutputPath "AnalyticsMetrics_$executionTimestamp"
 
-If(!(Test-Path $outputDirectory))
-{
-      New-Item -ItemType Directory -Force -Path $outputDirectory | Out-Null
-}
-
-$outputDirectory = Convert-Path $outputDirectory
 Write-Host "Output directory: " $outputDirectory
 
 # Query Config DB
@@ -66,7 +58,7 @@ ForEach($sqlQueryFile in $sqlQueryFiles)
     Write-Host "Output saved to $outputFilePath"
 }
 #===========================================================================================
-$exportSchemaFile = (Get-ChildItem '.\Schema\' -Filter *.sql)[0]
+$exportSchemaFile = (Get-ChildItem '.\Schema\' -Filter SchemaQuery.sql)[0]
 # Export Analytics schema metadata tables
 ForEach($table in Get-Content .\axtables.txt)
 {
