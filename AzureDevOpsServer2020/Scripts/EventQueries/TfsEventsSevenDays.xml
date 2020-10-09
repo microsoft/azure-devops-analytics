@@ -1,0 +1,5 @@
+<QueryList>
+  <Query Id="0" Path="Microsoft-Team Foundation Server/Debug">
+    <Select Path="Microsoft-Team Foundation Server/Debug">*[System[(Level=2) and TimeCreated[timediff(@SystemTime) &lt;= 604800000]]]</Select>
+  </Query>
+</QueryList>
